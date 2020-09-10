@@ -16,9 +16,9 @@ dataset_list = [sys.argv[1]]
 protocol_list = ['CAL']
 topic_sampling_protocol = sys.argv[2] #serial, smartoracle, MAB
 #map_list = ['P.10'] # map, P.10, infAP
-#map_list = ['map'] # map, P.10, infAP
+map_list = ['map'] # map, P.10, infAP
 #map_list = ['infAP'] # map, P.10, infAP
-map_list = ['gm_map']
+#map_list = ['gm_map']
 
 budget_increment = 500
 useBudget = True
@@ -54,7 +54,7 @@ protocol_result = {}
 
 budget_list = []
 #budget_list_TREC8 = [10134, 19231, 28125, 36947, 45584, 54071, 62476, 70654, 78805]
-budget_list_TREC8 = range(2000,14000,budget_increment)
+budget_list_TREC8 = range(2000,40500,budget_increment)
 
 
 datasource = dataset_list[0]
@@ -164,12 +164,13 @@ for stringUse in map_list:
                     predictionAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample/' + topic_sampling_protocol + '/10/'
                     predictionModifiedAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample' + topic_sampling_protocol + '/10'
 
+                    '''
                     if useBLAparam == True:
                         predictionAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample/' + topic_sampling_protocol + '/20/BLAparams_' + str(
                             BLAparams) + '/'
                         predictionModifiedAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample' + topic_sampling_protocol + '/20/BLAparams_' + str(
                             BLAparams) + '/'
-
+                    '''
                     if topic_sampling_protocol == 'serial':
                         predictionAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample/' + topic_sampling_protocol + '/0/'
                         predictionModifiedAddress = base_address1 + 'deterministic1/' + datasource + '/result/ranker/oversample' + topic_sampling_protocol + '/0'

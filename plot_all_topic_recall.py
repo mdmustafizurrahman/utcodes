@@ -3,6 +3,22 @@ matplotlib.use('Agg')
 import seaborn
 import pickle
 import numpy as np
+
+'''
+import matplotlib
+pgf_with_rc_fonts = {"pgf.texsystem": "pdflatex"}
+matplotlib.rcParams.update(pgf_with_rc_fonts)
+
+from matplotlib import rc
+rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+## for Palatino and other serif fonts use:
+#rc('font',**{'family':'serif','serif':['Palatino']})
+rc('text', usetex=True)
+import matplotlib.pyplot as plt
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
+'''
+
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from numpy import trapz
@@ -176,4 +192,4 @@ for datasource in dataset_list:
 #plt.xlabel("Allocated budget")
 #plt.ylabel("Recall")
 plt.tight_layout()
-plt.savefig("all_topic_recall.pdf", bbox_inches = 'tight', pad_inches = 0.1, type='pdf')
+plt.savefig("all_topic_recall_v1.png", bbox_inches = 'tight', pad_inches = 0.1, type='png')

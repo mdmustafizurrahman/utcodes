@@ -17,14 +17,14 @@ gs = gridspec.GridSpec(5, 2)
 base_address1 = "/work/04549/mustaf/lonestar/data/TREC/"
 plotAddress =  "/work/04549/mustaf/lonestar/data/TREC/plot/"
 
-dataset_list = ['TREC8','WT2013','WT2014']
+dataset_list = ['TREC8']
 protocol_list = ['CAL']
 topic_sampling_protocol_list = ['smartoracle', 'MAB','serial']
 #topic_sampling_protocol_list = ['MAB','serial']
 
-map_list = ['map','P.10'] # map, P.10, infAP
+#map_list = ['map','P.10'] # map, P.10, infAP
 
-#map_list = ['map','gm_map'] # map, P.10, infAP
+map_list = ['map'] # map, P.10, infAP
 
 budget_increment = 500
 useBudget = True
@@ -209,7 +209,7 @@ for stringUse in map_list:
 
             tmp_list = []
 
-            for key in range(3000, 14000, 1000):
+            for key in range(3000, 41000, 1000):
                 tmp_list.append(tau_list[key])
 
             protocol_result[topic_sampling_protocol] = tmp_list
@@ -219,7 +219,7 @@ for stringUse in map_list:
 
 
         plt.subplot(len(map_list), len(dataset_list), var)
-        x_labels_set = range(3000, 14000, 1000)
+        x_labels_set = range(3000, 41000, 1000)
 
         auc_mab = trapz(protocol_result['MAB'], dx=10)
         auc_rr = trapz(protocol_result['serial'], dx=10)
@@ -236,7 +236,7 @@ for stringUse in map_list:
             plt.title(datasource)
         plt.grid()
         plt.show()
-        x_labels_set_ticks = range(3000, 14000, 2000)
+        x_labels_set_ticks = range(3000, 41000, 2000)
         if var >= 4:
             plt.xlabel("Total Budget")
             plt.xticks(x_labels_set_ticks, x_labels_set_ticks)
@@ -253,8 +253,7 @@ for stringUse in map_list:
 #plt.suptitle(s1, size=16)
 plt.tight_layout()
 print os.getcwd()
-#plt.savefig(os.getcwd() + "/tau_plot_"+map_list[0]+"_"+map_list[1]+".pdf", format='pdf')
-plt.savefig(os.getcwd() + "/tau_plot_"+map_list[0]+"_"+map_list[1]+".png", type='png')
+plt.savefig(os.getcwd() + "/tau_plot_TREC8.pdf", format='pdf')
 
 
 
